@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmEase - Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="logo"> 🌱 Farm<span>Ease</span> </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="dashboard.html">Dashboard</a>
+		<a href="login.html">Login</a>
+    </nav>
+    <a href="marketplace.html" class="nav-btn">Shop Now</a>
+</header>
+<section class="page-header">
+    <p>FARMEASE SERVICES</p>
+    <h1>Agricultural Services</h1>
+    <span>
+        Professional services to make farming easier,
+        faster and more productive.
+    </span>
+</section>
+<section class="services-container" id="servicesContainer">
+    <div class="service-card">
+        <div class="service-image">🚜</div>
+        <div class="service-content">
+            <span class="service-category">
+                FARM EQUIPMENT
+            </span>
+            <h2>Tractor Rental</h2>
+            <p>
+                Rent modern tractors and farming equipment
+                according to your field requirements.
+            </p>
+            <div class="service-bottom">
+                <strong>₹800 / hour</strong>
+                <button onclick="bookService('Tractor Rental', 800, 1)"> Book Service </button>
+            </div>
+        </div>
+    </div>
+    <div class="service-card">
+        <div class="service-image">🧪</div>
+        <div class="service-content">
+            <span class="service-category">
+                FARM TESTING
+            </span>
+            <h2>Soil Testing</h2>
+            <p>
+                Get professional soil analysis and
+                recommendations for better crop growth.
+            </p>
+            <div class="service-bottom">
+                <strong>₹500</strong>
+                <button onclick="bookService('Soil Testing', 500, 2)">Book Service</button>
+            </div>
+        </div>
+    </div>
+    <div class="service-card">
+        <div class="service-image">💧</div>
+        <div class="service-content">
+            <span class="service-category">
+                IRRIGATION
+            </span>
+            <h2>Irrigation Setup</h2>
+            <p>
+                Professional drip and sprinkler irrigation
+                installation for your farm.
+            </p>
+            <div class="service-bottom">
+                <strong>₹2,500</strong>
+                <button onclick="bookService('Irrigation Setup', 2500, 3)">Book Service</button>
+            </div>
+        </div>
+    </div>
+    <div class="service-card">
+        <div class="service-image">👨‍🌾</div>
+        <div class="service-content">
+            <span class="service-category">
+                CONSULTATION
+            </span>
+            <h2>Crop Consultation</h2>
+            <p>
+                Get advice from agriculture experts about
+                crops, diseases and farming practices.
+            </p>
+            <div class="service-bottom">
+                <strong>₹700</strong>
+                <button onclick="bookService('Crop Consultation', 700, 4)"> Book Service </button>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-logo">🌱 FarmEase</div>
+    <p>Smart solutions for modern agriculture.</p>
+    <p>© 2026 FarmEase. All rights reserved.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

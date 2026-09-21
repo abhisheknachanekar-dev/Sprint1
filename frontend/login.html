@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmEase - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">  🌱 Farm<span>Ease</span> </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="login.html" class="active"> Login</a>
+    </nav>
+</header>
+<section class="login-section">
+    <div class="login-box">
+        <div class="login-logo">  🌱 </div>
+        <h1>Welcome to FarmEase</h1>
+        <p class="login-subtitle">
+            Login to manage your farming activities
+        </p>
+
+        <!-- ROLE SELECTOR -->
+
+    <div class="role-selector">
+     <button id="userRoleBtn" class="role-btn active" onclick="selectRole('user')"> 👨‍🌾 User</button>
+     <button id="adminRoleBtn" class="role-btn" onclick="selectRole('admin')"> 👨‍💼 Admin </button>
+     </div>
+
+        <!-- LOGIN FORM -->
+
+        <form onsubmit="loginUser(event)">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+            <label>Password</label>
+            <input  type="password" id="loginPassword" placeholder="Enter your password" required >
+            <div class="remember-row">
+                <label class="remember">       
+                <input  type="checkbox" id="rememberMe"> Remember me </label>
+                <a href="#"> Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <p id="loginError" class="login-error"> </p>
+         <!-- REGISTRATION OPTION -->
+        <div class="register-option">
+            <span>Don't have an account?</span>
+            <button type="button" class="register-link" onclick="showRegisterForm()">Create Account</button>
+        </div>
+
+        <!-- REGISTRATION FORM -->
+        <div id="registerFormContainer" class="register-form-container">
+            <div class="register-divider">Create your FarmEase account</div>
+            <form onsubmit="registerUser(event)">
+                <label>Full Name</label>
+                <input type="text" id="registerName" placeholder="Enter your full name" required>
+                <label>Email Address</label>
+                <input type="email" id="registerEmail" placeholder="Enter your email" required>
+                <label>Password</label>
+                <input type="password" id="registerPassword" placeholder="Create a password" minlength="6" required>
+                <label>Confirm Password</label>
+                <input type="password" id="registerConfirmPassword" placeholder="Confirm your password" minlength="6" required>
+                <button type="submit" class="login-btn register-btn">Create Account</button>
+                <button type="button" class="back-login-btn" onclick="hideRegisterForm()">Back to Login</button>
+            </form>
+            <p id="registerMessage" class="register-message"></p>
+        </div>
+ 
+<footer>
+    <div class="footer-logo">🌱 FarmEase </div>
+    <p>
+        Smart solutions for modern agriculture.
+    </p>
+    <p>
+        © 2026 FarmEase. All rights reserved.
+    </p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
+

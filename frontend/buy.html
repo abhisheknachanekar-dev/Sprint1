@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmEase - Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="logo"> 🌱 Farm<span>Ease</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
+
+<section class="checkout-container">
+    <div class="checkout-product">
+        <h2>Order Summary</h2>
+        <div id="checkoutProduct"></div>
+    </div>
+    <div class="payment-box">
+        <h2>Payment Details</h2>
+        <form onsubmit="processPayment(event)">
+            <label>Full Name</label>
+            <input type="text" id="customerName" required placeholder="Enter your name">
+            <label>Mobile Number</label>
+            <input type="tel" id="mobile" required placeholder="Enter mobile number">
+            <label>Delivery Address</label>
+            <textarea id="address" required placeholder="Enter delivery address"></textarea>
+            <label>Payment Method</label>
+            <select id="paymentMethod">
+                <option value="UPI">UPI</option>
+                <option value="Card">Credit / Debit Card</option>
+                <option value="COD">Cash on Delivery</option>
+            </select>
+            <div id="cardDetails">
+                <label>Card Number</label>
+                <input type="text" placeholder="XXXX XXXX XXXX XXXX">
+                <label>Expiry Date</label>
+                <input type="text" placeholder="MM/YY">
+            </div>
+            <button class="payment-btn">Pay Now</button>
+        </form>
+    </div>
+</section>
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <div class="success-icon">✓</div>
+        <h2>Payment Successful!</h2>
+        <p> Your FarmEase order has been placed successfully. </p>
+        <p> Order ID:<strong id="orderId"></strong></p>
+        <a href="dashboard.html" class="btn primary-btn"> View Dashboard </a>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

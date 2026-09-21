@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmEase - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+<header class="navbar">
+    <div class="logo">
+        🌱 Farm<span>Ease</span>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html"> Services</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="admin.html" class="active">Admin</a>
+    </nav>
+    <button onclick="logoutUser()"class="nav-btn">Logout</button>
+</header>
+<section class="dashboard-header">
+ <p>ADMIN PANEL</p>
+ <h1> Admin Dashboard 👨‍💼</h1>
+ <span>Manage FarmEase operations.</span>
+</section>
+
+<section class="dashboard-stats">
+<div class="dashboard-stat">
+ <span>👨‍🌾</span>
+ <div>
+<strong id="adminFarmers">0</strong>
+<small> Registered Farmers</small>
+</div>
+ </div>
+<div class="dashboard-stat">
+<span>🛒</span>
+<div>
+<strong id="adminOrders"> 0</strong>
+<small>Total Orders</small>
+</div>
+</div>
+
+<div class="dashboard-stat">
+<span>💰</span>
+ <div>
+    <strong id="adminRevenue"> ₹0</strong>
+    <small>Revenue </small>
+</div>
+</div>
+</section>
+
+<section class="dashboard-content">
+    <div class="dashboard-card">
+        <div class="card-heading">
+            <h2>Recent Orders</h2>
+        </div>
+        <div id="adminOrdersList">
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="card-heading">
+            <h2>Services</h2>
+        </div>
+        <div id="adminServicesList">
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-logo">🌱 FarmEase</div>
+    <p>FarmEase Administration Panel</p>
+    <p> © 2026 FarmEase</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+

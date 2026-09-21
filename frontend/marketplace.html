@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmEase - Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">  🌱 Farm<span>Ease</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="marketplace.html" class="active">Marketplace</a>
+        <a href="dashboard.html">Dashboard</a>
+		<a href="login.html">Login</a>
+    </nav>
+    <div class="cart">  🛒 Cart <span id="cartCount">0</span> </div>
+</header>
+<section class="page-header">
+    <p>FARMEASE MARKETPLACE</p>
+    <h1>Farm Products</h1>
+    <span>
+        Quality agricultural products at affordable prices.
+    </span>
+</section>
+<section class="market-tools">
+    <input type="text" id="searchInput"  placeholder="Search products..." onkeyup="displayProducts()">
+    <select id="categoryFilter" onchange="displayProducts()">
+        <option value="all">All Categories</option>
+        <option value="seeds">Seeds</option>
+        <option value="fertilizer">Fertilizers</option>
+        <option value="equipment">Equipment</option>
+        <option value="pesticide">Pesticides</option>
+    </select>
+</section>
+<section class="product-grid" id="productGrid"></section>
+<footer>
+    <div class="footer-logo">🌱 FarmEase</div>
+    <p>Smart solutions for modern agriculture.</p>
+    <p>© 2026 FarmEase. All rights reserved.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
