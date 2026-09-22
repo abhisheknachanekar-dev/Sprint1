@@ -1,0 +1,263 @@
+CREATE DATABASE farmease;
+
+USE farmease;
+
+-- =========================
+-- USERS
+-- =========================
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    name VARCHAR(100) NOT NULL,
+
+    email VARCHAR(150) NOT NULL UNIQUE,
+
+    password VARCHAR(255) NOT NULL,
+
+    role ENUM('user','admin') DEFAULT 'user',
+
+    phone VARCHAR(20),
+
+    address TEXT,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- =========================
+-- PRODUCTS
+-- =========================
+
+CREATE TABLE products (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    name VARCHAR(150) NOT NULL,
+
+    category VARCHAR(50) NOT NULL,
+
+    description TEXT,
+
+    price DECIMAL(10,2) NOT NULL,
+
+    stock INT DEFAULT 0,
+
+    image VARCHAR(255),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+
+-- =========================
+-- ORDERS
+-- =========================
+
+CREATE TABLE orders (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    user_id INT NOT NULL,
+
+    total_amount DECIMAL(10,2) NOT NULL,
+
+    payment_method VARCHAR(50),
+
+    payment_status ENUM(
+        'Pending',
+        'Paid',
+        'Failed'
+    ) DEFAULT 'Pending',
+
+    order_status ENUM(
+        'Pending',
+        'Confirmed',
+        'Processing',
+        'Delivered',
+        'Cancelled'
+    ) DEFAULT 'Pending',
+
+    delivery_address TEXT,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+
+);
+
+
+-- =========================
+-- ORDER ITEMS
+-- =========================
+
+CREATE TABLE order_items (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    order_id INT NOT NULL,
+
+    product_id INT NOT NULL,
+
+    quantity INT NOT NULL DEFAULT 1,
+
+    price DECIMAL(10,2) NOT NULL,
+
+    FOREIGN KEY (order_id)
+        REFERENCES orders(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (product_id)
+        REFERENCES products(id)
+
+);
+
+
+-- =========================
+-- SERVICES
+-- =========================
+
+CREATE TABLE services (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    name VARCHAR(150) NOT NULL,
+
+    description TEXT,
+
+    price DECIMAL(10,2) NOT NULL
+
+);
+
+
+-- =========================
+-- SERVICE BOOKINGS
+-- =========================
+
+CREATE TABLE service_bookings (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    user_id INT NOT NULL,
+
+    service_id INT NOT NULL,
+
+    booking_date DATE,
+
+    status ENUM(
+        'Booked',
+        'Confirmed',
+        'Completed',
+        'Cancelled'
+    ) DEFAULT 'Booked',
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (service_id)
+        REFERENCES services(id)
+
+);
+
+
+INSERT INTO services
+(name, description, price)
+VALUES
+
+(
+    'Tractor Rental',
+    'Rent modern tractors and farming equipment.',
+    800
+),
+
+(
+    'Soil Testing',
+    'Professional soil analysis and recommendations.',
+    500
+),
+
+(
+    'Irrigation Setup',
+    'Drip and sprinkler irrigation installation.',
+    2500
+),
+
+(
+    'Crop Consultation',
+    'Agriculture expert consultation.',
+    700
+);
+
+
+INSERT INTO products
+(name, category, description, price, stock)
+VALUES
+
+(
+    'Premium Wheat Seeds',
+    'seeds',
+    'High-quality wheat seeds for better yield.',
+    450,
+    100
+),
+
+(
+    'Hybrid Tomato Seeds',
+    'seeds',
+    'Premium hybrid tomato seeds.',
+    280,
+    100
+),
+
+(
+    'Organic Fertilizer',
+    'fertilizer',
+    'Organic fertilizer for healthy crop growth.',
+    650,
+    75
+),
+
+(
+    'NPK Fertilizer',
+    'fertilizer',
+    'Balanced NPK fertilizer for crops.',
+    850,
+    80
+),
+
+(
+    'Agriculture Sprayer',
+    'equipment',
+    'Portable agricultural crop sprayer.',
+    3200,
+    30
+),
+
+(
+    'Drip Irrigation Kit',
+    'equipment',
+    'Water-efficient drip irrigation system.',
+    4200,
+    25
+),
+
+(
+    'Bio Pesticide',
+    'pesticide',
+    'Natural pesticide for crop protection.',
+    550,
+    60
+),
+
+(
+    'Neem Pesticide',
+    'pesticide',
+    'Neem-based organic crop protection.',
+    380,
+    70
+);
